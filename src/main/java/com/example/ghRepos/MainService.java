@@ -66,7 +66,7 @@ public class MainService {
         JSONObject responseJson = new JSONObject(responseBody);
 
         String fullName = responseJson.getString("full_name");
-        String description = responseJson.getString("description");
+        String description = responseJson.get("description") instanceof String ?  responseJson.getString("description") : ""  ;
         String cloneUrl = responseJson.getString("clone_url");
         int stars = responseJson.getInt("stargazers_count");
         String createdAtString = responseJson.getString("created_at");
